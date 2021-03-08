@@ -9,7 +9,8 @@ if (PHP_SAPI == 'cli-server') {
     }
 }
 require __DIR__ . '/../vendor/autoload.php';
-require '../includes/DbOperations.php';
+require __DIR__ . '/../includes/UsersData.php';
+
 session_start();
 // Instantiate the app
 $settings = require __DIR__ . '/../src/settings.php';
@@ -31,5 +32,12 @@ $middleware($app);
 // Register routes
 $routes = require __DIR__ . '/../src/routes.php';
 $routes($app);
+
+require __DIR__ . '/../includes/users.php';
+
 // Run app
 $app->run();
+
+
+
+

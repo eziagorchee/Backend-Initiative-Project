@@ -22,10 +22,10 @@ return function (App $app) {
         $app->group('/v1', function() use ($app) {
             $app->group('/users', function() use ($app) {
                 $app->post('/create','create_user');
-                $app->get('/read/{id}','');
-                $app->get('/get_all','');
-                $app->put('/update/{id}','');
-                $app->delete('/delete/{id}','');
+                // $app->get('/read/{id}','');
+                // $app->get('/get_all','');
+                // $app->put('/update/{id}','');
+                // $app->delete('/delete/{id}','');
            
             });
             $app->group('/movies', function() use ($app) {
