@@ -34,6 +34,8 @@ $routes = require __DIR__ . '/../src/routes.php';
 $routes($app);
 
 require __DIR__ . '/../includes/users.php';
+require __DIR__ . '/../includes/movies.php';
+
 
 // Run app
 $app->run();

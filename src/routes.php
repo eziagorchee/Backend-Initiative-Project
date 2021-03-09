@@ -29,6 +29,7 @@ return function (App $app) {
            
             });
             $app->group('/movies', function() use ($app) {
+                $app->post('/create', "create_movie");
            
             });
             $app->group('/rentals', function() use ($app) {
