@@ -24,7 +24,7 @@ return function (App $app) {
                 $app->post('/create','create_user');
                 $app->get('/read','get_single_user');
                 $app->get('/get_all','get_all_users');
-                // $app->put('/update/{id}','');
+                $app->put('/update','update_user');
                 // $app->delete('/delete/{id}','');
            
             });

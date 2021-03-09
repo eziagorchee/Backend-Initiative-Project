@@ -27,3 +27,10 @@ function get_single_user($request){
     }
   
 }
+
+function update_user($request)
+{
+    $body = $request->getParsedBody();
+    $user_op = new UsersData();
+    echo $user_op->update_user($body);
+}
