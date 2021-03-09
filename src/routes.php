@@ -23,7 +23,7 @@ return function (App $app) {
             $app->group('/users', function() use ($app) {
                 $app->post('/create','create_user');
                 // $app->get('/read/{id}','');
-                $app->get('/get_all','');
+                $app->get('/get_all','get_all_users');
                 // $app->put('/update/{id}','');
                 // $app->delete('/delete/{id}','');
            

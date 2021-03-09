@@ -41,7 +41,7 @@ class UsersData
 
         $id = count($this->users) + 1;
 
-        if(isset($first_name)and isset($last_name)and isset($age)and isset($phone_number)and isset($address)and isset($gender)and isset($email)){
+        if (isset($first_name) and isset($last_name) and isset($age) and isset($phone_number) and isset($address) and isset($gender) and isset($email)) {
             $user = [
                 "first_name" => $first_name,
                 'last_name' => $last_name,
@@ -51,26 +51,33 @@ class UsersData
                 'gender' => $gender,
                 'email' => $email,
                 'id' => $id
-    
+
             ];
             $this->users[] = $user;
-    
+
             return json_encode(
                 [
                     "status" => 200,
                     "message" => "User has been created"
                 ]
             );
-            
-        } else{
+        } else {
             return json_encode(
                 [
                     "status" => 400,
                     "message" => "Incomplete fields"
                 ]
-                );
+            );
         }
+    }
 
-       
+    public function get_all_users(){
+        return json_encode(
+            [
+                "status"=>200,
+                "message"=> "users retrieved successfully",
+                "users"=>$this->users
+            ]
+        );
     }
 }
