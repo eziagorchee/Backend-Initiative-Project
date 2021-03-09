@@ -41,24 +41,36 @@ class UsersData
 
         $id = count($this->users) + 1;
 
-        $user = [
-            "first_name" => $first_name,
-            'last_name' => $last_name,
-            'age' => $age,
-            'phone_number' => $phone_number,
-            'address' => $address,
-            'gender' => $gender,
-            'email' => $email,
-            'id' => $id
+        if(isset($first_name)and isset($last_name)and isset($age)and isset($phone_number)and isset($address)and isset($gender)and isset($email)){
+            $user = [
+                "first_name" => $first_name,
+                'last_name' => $last_name,
+                'age' => $age,
+                'phone_number' => $phone_number,
+                'address' => $address,
+                'gender' => $gender,
+                'email' => $email,
+                'id' => $id
+    
+            ];
+            $this->users[] = $user;
+    
+            return json_encode(
+                [
+                    "status" => 200,
+                    "message" => "User has been created"
+                ]
+            );
+            
+        } else{
+            return json_encode(
+                [
+                    "status" => 400,
+                    "message" => "Incomplete fields"
+                ]
+                );
+        }
 
-        ];
-        $this->users[] = $user;
-
-        return json_encode(
-            [
-                "status" => 200,
-                "message" => "User has been created"
-            ]
-        );
+       
     }
 }
