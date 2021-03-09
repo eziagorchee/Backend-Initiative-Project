@@ -80,4 +80,29 @@ class UsersData
             ]
         );
     }
+
+    public function get_single_user($id){
+        
+        foreach($this->users as $user){
+            if($user['id'] == $id){
+                return json_encode(
+                    [
+                        "status"=>200,
+                        "message"=> "user retrieved successfully",
+                        "user"=>$user
+                    ]
+                );
+
+            }
+        }
+
+        return json_encode(
+            [
+                "status"=>404,
+                "message"=> "user not found",
+                "user"=>null
+            ]
+        );
+
+    }
 }
