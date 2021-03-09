@@ -184,4 +184,30 @@ class UsersData
             );
         }
     }
+
+    public function delete_user($id)
+    {
+        $index = 0;
+
+        foreach ($this->users as $user) {
+            if ($user['id'] == $id) {
+                unset($this->users[$index]);
+                return json_encode(
+                    [
+                        "status" => 200,
+                        "message" => "user deleted"
+                    ]
+                );
+            }
+            $index++;
+        }
+
+        return json_encode(
+            [
+                "status" => 404,
+                "message" => "user not found",
+                "user" => null
+            ]
+        );
+    }
 }

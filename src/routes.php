@@ -25,7 +25,7 @@ return function (App $app) {
                 $app->get('/read','get_single_user');
                 $app->get('/get_all','get_all_users');
                 $app->put('/update','update_user');
-                // $app->delete('/delete/{id}','');
+                $app->delete('/delete','delete_user');
            
             });
             $app->group('/movies', function() use ($app) {

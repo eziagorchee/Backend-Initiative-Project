@@ -33,4 +33,22 @@ function update_user($request)
     $body = $request->getParsedBody();
     $user_op = new UsersData();
     echo $user_op->update_user($body);
+
+}
+
+function delete_user($request){
+    if(isset($request->getQueryParams()['id'])){
+        $id =  $request->getQueryParams()['id'];
+        $user_op = new UsersData();
+        echo $user_op->delete_user($id);
+    }else{
+        echo json_encode(
+            [
+                "status"=>404,
+                "message"=> "Id is required",
+                "user"=>null
+            ]
+        );
+    }
+  
 }
