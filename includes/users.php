@@ -16,6 +16,7 @@ function get_single_user($request){
         $id =  $request->getQueryParams()['id'];
         $user_op = new UsersData();
         echo $user_op->get_single_user($id);
+        
     }else{
         echo json_encode(
             [
