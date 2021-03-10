@@ -30,6 +30,8 @@ return function (App $app) {
             });
             $app->group('/movies', function() use ($app) {
                 $app->post('/create', "create_movie");
+                $app->get('/get_all','get_all_movies');
+                $app->get('/read','get_single_movie');
            
             });
             $app->group('/rentals', function() use ($app) {

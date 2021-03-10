@@ -64,4 +64,37 @@ class MoviesData
             );
         }
     }
+
+    public function get_all_movies(){
+        return json_encode(
+            [
+                "status"=> 200,
+                "message" => "movies retrieved successfully",
+                "user" => $this->movies
+            ]
+            );
+    }
+
+    public function get_single_movie($movie_id)
+    {
+        foreach($this->movies as $movie){
+            if($movie['movie_id']==$movie_id){
+                return json_encode(
+                    [
+                        "status"=>200,
+                        "message"=>"movie retrieved successfully",
+                        "user"=> $movie
+
+                    ]
+                    );
+            }
+
+        } return json_encode(
+            [
+                "status"=>400,
+                "message"=>"movie not found",
+                "movies"=> null
+            ]
+        );
+    }
 }
