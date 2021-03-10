@@ -26,9 +26,14 @@ function get_single_movie($request)
                 "user"=>null
             ]
         );
-    }
-    
+    } 
 
-    
+}
+
+function update_movie($request)
+{
+    $body= $request->getParsedBody();
+    $movieD = new MoviesData();
+    echo $movieD->update_movie($body);
 
 }
