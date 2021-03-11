@@ -79,20 +79,20 @@ class MoviesData
             [
                 "status" => 200,
                 "message" => "movies retrieved successfully",
-                "user" => $this->movies
+                "Movie" => $this->movies
             ]
         );
     }
 
-    public function get_single_movie($movie_id)
+    public function get_single_movie($id)
     {
         foreach ($this->movies as $movie) {
-            if ($movie['movie_id'] == $movie_id) {
+            if ($movie['movie_id'] == $id) {
                 return json_encode(
                     [
                         "status" => 200,
                         "message" => "movie retrieved successfully",
-                        "user" => $movie
+                        "Movie" => $movie
 
                     ]
                 );
@@ -110,8 +110,7 @@ class MoviesData
     {
         if (isset($body['movie_id'])) {
             $movie_id = $body['movie_id'];
-            $index = 0;
-            foreach ($this->movies as $value) {
+            foreach ($this->movies as $key=>$value) {
                 if ($value['movie_id'] == $movie_id) {
                     $movie = $value;
 
@@ -127,8 +126,8 @@ class MoviesData
                     if (isset($body['star_actor'])) {
                         $movie['star_actor'] = $body['star_actor'];
                     }
-
-                    $this->movies[$index] = $movie;
+//updating at that index
+                    $this->movies[$key] = $movie;
                  return json_encode(
                      [
                          "status"=>200,
@@ -136,8 +135,6 @@ class MoviesData
                      ]
                  ) ;  
                 }
-
-                $index++;
             }
         } else{
             return json_encode(
