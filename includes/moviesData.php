@@ -131,7 +131,7 @@ class MoviesData
                  return json_encode(
                      [
                          "status"=>200,
-                         "message"=>"movie ". $movie['movie_name']. " with id of ". $movie['movie_id`']." has been updated"
+                         "message"=>"movie ". $movie['movie_name']. " with id of ". $movie['movie_id']." has been updated"
                      ]
                  ) ;  
                 }
