@@ -24,6 +24,15 @@ class MoviesData
             "star_actor" => "khan",
             "movie_id" => 2
 
+        ],
+        [
+
+            "movie_name" => "hearts",
+            "movie_director" => "Tosin",
+            "year_of_release" => "2004",
+            "star_actor" => "khan",
+            "movie_id" => 9
+
         ]
 
     ];
@@ -118,6 +127,8 @@ class MoviesData
                     if (isset($body['star_actor'])) {
                         $movie['star_actor'] = $body['star_actor'];
                     }
+
+                    $this->movies[$index] = $movie;
                  return json_encode(
                      [
                          "status"=>200,
@@ -132,9 +143,30 @@ class MoviesData
             return json_encode(
                 [
                     "status"=>400,
-                    "message"=>"movie_id not found"
+                    "message"=>"Movie not found"
                 ]
                 );
         }
+    }
+    public function delete_movie($movie_id){
+
+        for($i=0;$i<count($this->movies);$i++){
+            if($this->movies[$i]['movie_id'] == $movie_id){
+                unset($this->movies[$i]);
+                return json_encode(
+                    [
+                        "status"=>200,
+                        "message"=>"Movie deleted"
+                    ]
+                    );
+            }
+        }
+        return json_encode(
+            [
+                "status"=>404,
+                "message"=>"Movie not found."
+            ]
+            );
+
     }
 }

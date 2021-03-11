@@ -33,6 +33,7 @@ return function (App $app) {
                 $app->get('/get_all','get_all_movies');
                 $app->get('/read','get_single_movie');
                 $app->put('/update','update_movie');
+                $app->delete('/delete','delete_movie');
            
             });
             $app->group('/rentals', function() use ($app) {

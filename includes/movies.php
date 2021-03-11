@@ -37,3 +37,22 @@ function update_movie($request)
     echo $movieD->update_movie($body);
 
 }
+
+function delete_movie($request)
+{
+    if(isset($request->getQueryParams()['movie_id'])){
+        $id=$request->getQueryParams()['movie_id'];
+        $movieD= new MoviesData();
+        echo $movieD->delete_movie($id);
+
+
+    }else{
+        return json_encode(
+            [
+                "status"=>400,
+                "message"=>"movie id is required"
+            ]
+            );
+    }
+
+}
