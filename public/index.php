@@ -11,6 +11,8 @@ if (PHP_SAPI == 'cli-server') {
 require __DIR__ . '/../vendor/autoload.php';
 require __DIR__ . '/../includes/UsersData.php';
 require __DIR__ . '/../includes/moviesData.php';
+require __DIR__ . '/../includes/rentalData.php';
+
 
 session_start();
 // Instantiate the app
@@ -36,6 +38,7 @@ $routes($app);
 
 require __DIR__ . '/../includes/users.php';
 require __DIR__ . '/../includes/movies.php';
+require __DIR__ . '/../includes/rentals.php';
 
 
 // Run app
