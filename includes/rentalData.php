@@ -62,4 +62,14 @@ class Rentals
            
         }
     }
+    public function get_all_rentals()
+    {
+        return json_encode(
+            [
+                "status"=>200,
+                "message"=>"Rentals retrieved succesfully",
+                "rentals"=>$this->movie_for_rents
+            ]
+            );
+    }
 }

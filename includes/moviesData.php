@@ -79,7 +79,7 @@ class MoviesData
             [
                 "status" => 200,
                 "message" => "movies retrieved successfully",
-                "Movie" => $this->movies
+                "movie" => $this->movies
             ]
         );
     }
@@ -92,7 +92,7 @@ class MoviesData
                     [
                         "status" => 200,
                         "message" => "movie retrieved successfully",
-                        "Movie" => $movie
+                        "movie" => $movie
 
                     ]
                 );
