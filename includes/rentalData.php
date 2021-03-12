@@ -72,4 +72,28 @@ class Rentals
             ]
             );
     }
+    public function get_single_rental($movie_id){
+    foreach($this->movie_for_rents as $key=>$value){
+        if($value['movie_id']==$movie_id){
+            $movie_for_rent=$this->movie_for_rents[$key];
+            return json_encode(
+                [
+                    "status"=>200,
+                    "message"=> "rental retrieved successfully",
+                    "rental"=>$movie_for_rent
+                ]
+                );
+        }else{
+            return json_encode(
+                [
+                    "status"=>400,
+                    "message"=> "Movie id not found",
+                    "rental"=>null
+                ]
+                );
+
+        }
+
+    }
+}
 }

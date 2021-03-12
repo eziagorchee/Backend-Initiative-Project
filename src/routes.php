@@ -39,6 +39,7 @@ return function (App $app) {
             $app->group('/rentals', function() use ($app) {
                 $app->post('/create', 'initiate_rentals');
                 $app->get('/get_all', 'get_all_rentals');
+                $app->get('/get_single', 'get_single_rental');
            
             });
            
