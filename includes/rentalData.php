@@ -134,4 +134,26 @@ class Rentals
             ]
         );
     }
+    public function delete_rental($movie_id)
+    {
+        foreach($this->movie_for_rents as $index=>$object_at_that_index){
+            if($object_at_that_index['movie_id']==$movie_id){
+                unset($object_at_that_index);
+                echo json_encode(
+                    [
+                        "status"=>200,
+                        "message"=>"rental deleted"
+                    ]
+                    );
+
+            }
+        }
+        
+            return json_encode([
+                "status"=>400,
+                "message"=>'ID not found'
+
+            ]);
+        
+    }
 }

@@ -40,3 +40,11 @@ function update_rental($request)
             );
     }
 }
+function delete_rental($request){
+    if(isset($request->getQueryParams['movie_id']))
+    {
+        $movie_id=$request->getQueryParams['movie_id'];
+        $delete=new Rentals;
+        return $delete->delete_rental($movie_id);
+    }
+}

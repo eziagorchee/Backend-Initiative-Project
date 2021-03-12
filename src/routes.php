@@ -41,6 +41,7 @@ return function (App $app) {
                 $app->get('/get_all', 'get_all_rentals');
                 $app->get('/get_single', 'get_single_rental');
                 $app->put('/update', 'update_rental');
+                $app->delete('/delete', 'delete_rental');
            
             });
            

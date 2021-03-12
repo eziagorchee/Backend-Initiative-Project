@@ -14,6 +14,7 @@ require __DIR__ . '/../includes/moviesData.php';
 require __DIR__ . '/../includes/rentalData.php';
 
 
+
 session_start();
 // Instantiate the app
 $settings = require __DIR__ . '/../src/settings.php';
